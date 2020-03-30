@@ -1,0 +1,22 @@
+version: '2.1'
+
+services:
+
+  memcached:
+    image: memcached
+
+  web:
+    build:
+      context: ./web/
+    ports:
+      - "8000:8000"
+    depends_on:
+      - memcached
+
+  nginx:
+    restart: always
+    build: ./nginx/
+    ports:
+      - "80:80"
+    depends_on:
+      - web

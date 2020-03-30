@@ -1,0 +1,23 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <span class="h2" id="country-title" data-dftype="{{report_type}}" data-country="{{country}}">{{report_type | title}} Statistics for {{country | title}}</span>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group mr-2">
+            <button class="btn btn-sm btn-outline-secondary">Share</button>
+            <button class="btn btn-sm btn-outline-secondary">Export</button>
+            </div>
+            <div class="dropdown">
+            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span></span>
+                Country
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" data-country="Brazil" href="/plot/country/confirmed/Brazil">Brazil</a>
+                <a class="dropdown-item" data-country="Germany" href="/plot/country/confirmed/Germany">Germany</a>
+                <a class="dropdown-item" data-country="Spain" href="/plot/country/confirmed/Spain">Spain</a>
+                <a class="dropdown-item" data-country="Italy" href="/plot/country/confirmed/Italy">Italy</a>
+                <a class="dropdown-item" data-country="Portugal" href="/plot/country/confirmed/Portugal">Portugal</a>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,43 @@
+{% extends 'base.jinja2' %}
+
+{% block content %}
+      <div class="row">
+        {% include "left_menu.jinja2" %}
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+          {% include "dropdown_menu.jinja2" %}
+          {% include "information_cards.jinja2" %}
+         
+          <div class="row">
+            <div class="chart" id="graph">
+            </div>
+            <div class="chart2" id="graph2">
+            </div>
+          </div>
+
+          <h2>Daily Growth</h2>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm" data-toggle="table" data-url="/exponential/country/{{report_type}}/{{country | title}}" id="exponential">
+              <thead>
+                <tr>
+                  <th data-field="cases">Cases</th>
+                  <th data-field="cases_diff">Cases Diff</th>
+                  <th data-field="cases_growth_%">Cases Growth (%)</th>
+                  <th data-field="date">Date</th>
+                  <th data-field="day">Day</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </main>
+      </div>
+{% endblock %}
+
+{% block footer %}
+  {% if report_type == 'confirmed' %}
+    <script src="{{ url_for('static', filename='js/plots_confirmed.js')}}"></script>
+  {% elif report_type == 'recovered' %}
+    <script src="{{ url_for('static', filename='js/plots_recovered.js')}}"></script>
+  {% else %}
+    <script src="{{ url_for('static', filename='js/plots_deaths.js')}}"></script>
+  {% endif %}
+{% endblock %}
